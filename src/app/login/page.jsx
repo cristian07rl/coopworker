@@ -10,13 +10,21 @@ export default function Login() {
   const router = useRouter();
   useEffect(() => {
     try {
-      const token = localStorage.getItem('token')
-      AuthService.logintoken(token)
+      const logToken = async () =>{
+        const Token = localStorage.getItem('token')
+        if (Token == null) return
+        const resultado = await AuthService.logintoken(Token)
+        if (resultado.status === 200 && resultado.response == 'Logeado' ){
+          router.push('/home')
+        }
+      }
+      logToken()
     }
     catch (err) {
       console.log(err)
     }
-  }, [])
+  }, [router])
+  
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -30,7 +38,6 @@ export default function Login() {
       // Lógica para manejar el usuario autenticado, por ejemplo, redirigir a una nueva página
       if (userlog.status == 200) {
         router.push('/home');
-        console.log("userlogtiken", userlog.token)
       }
       else {
         setError("credenciales invalidas")

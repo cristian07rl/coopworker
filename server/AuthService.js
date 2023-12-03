@@ -23,10 +23,7 @@ const AuthService = {
     });
     // Puedes ver la respuesta completa si es necesario
     const data = await response.json();
-
-    console.log(data)
-    console.log(response.status)
-    return { status: response.status, token: data.token }; // Devuelve el status de la respuesta
+    return { status: response.status, response: data.message }; // Devuelve el status de la respuesta
   }
   ,
   logout: () => {
