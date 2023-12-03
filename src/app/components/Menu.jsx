@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 const MenuComponent = ({content,icon,title}) => {
     const [menuVisible, setMenuVisible] = useState(false);
     const menuRef = useRef(null);
-
+    console.log(menuVisible)
     const handleClick = () => {
-        event.stopPropagation();
+        event.stopImmediatePropagation()
+
         setMenuVisible(!menuVisible);
     };
 

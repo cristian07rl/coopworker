@@ -1,10 +1,6 @@
-
-import { busqueda_tabla } from "../utils/busquedas";
 import paginacion from "../utils/paginacion";
-export default async function Tabla() {
-    const datos = await busqueda_tabla();
-    const datoslimitados=paginacion(datos,4)
-    console.log(datoslimitados)
+export default function Tabla({ datos, currentPage, setCurrentPage, limit }) {
+    const datospaginados = paginacion(datos, limit)
     return (
         <>
             <table className="afiliados-table">
@@ -20,7 +16,7 @@ export default async function Tabla() {
                     </tr>
                 </thead>
                 <tbody>
-                    {datos.map((element) => {
+                    {datospaginados[currentPage].map((element) => {
                         return (
                             <tr key={element.datospersonales._id}>
                                 <td>{element.datospersonales.nombre}</td>
@@ -38,10 +34,10 @@ export default async function Tabla() {
                 </tbody>
             </table>
             <div className="container-row">
-                <button >
+                <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
                     Anterior
                 </button>
-                <button>
+                <button onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage >= datospaginados.length-1}>
                     Siguiente
                 </button>
             </div>

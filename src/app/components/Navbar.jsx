@@ -10,7 +10,7 @@ const Navbar = ({  setlogstatus }) => {
                 <h2>mi programa</h2>
                 <MenuComponent icon={<FontAwesomeIcon icon={faUser} />}
                     content={
-                        <li onClick={() => setlogstatus(false)}>logout</li>
+                        <div onClick={() => setlogstatus(false)}>logout</div>
                     }
                     
                 />

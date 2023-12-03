@@ -2,9 +2,8 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse, faUser, faSackDollar, faAddressCard, faUsers } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faSackDollar, faAddressCard, faUsers } from '@fortawesome/free-solid-svg-icons'
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const house = <FontAwesomeIcon icon={faHouse} />
@@ -36,12 +35,12 @@ export default function NavLinks() {
                 const LinkIcon = link.icon;
                 return (
                     pathname == link.href ?
-                        <Link key={link.name} href={link.href} >
-                            <p className="hidden md:block"> {LinkIcon} {link.name}</p>
+                        <Link key={link.name} href={link.href} style={{backgroundColor: '#212121'}}>
+                            {LinkIcon} {link.name}
                         </Link>
                         :
                         <Link key={link.name} href={link.href}>
-                            <p className="hidden md:block" > {LinkIcon} {link.name}</p>
+                            {LinkIcon} {link.name}
                         </Link >
 
                 );

@@ -4,9 +4,9 @@ export default function Asidebar() {
         <>
             <aside>
                 <div className="menu">
-                    <ul>
+                    <div>
                         <NavLinks />
-                    </ul>
+                    </div>
                 </div>
             </aside>
         </>

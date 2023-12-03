@@ -76,17 +76,10 @@ nav {
   background-color: #0f0f0f;
   color: #fff;
   box-sizing: border-box;
-  justify-content: space-between;
+  justify-content: space-between; 
   grid-row-start: 1;
   grid-column-start: 1;
   grid-column-end: 3;
-
-}
-
-aside ul {
-  font-size: 1.2rem;
-  gap: 10px;
-
 
 }
 
@@ -96,21 +89,26 @@ aside ul {
   left: 0;
 }
 
-.menu ul {
+.menu div {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
   list-style: none;
   padding: 0;
+  gap: 5px;
 }
 
 .svg-inline--fa {
+  height: 1em;
   min-width: 25px;
-  max-width: 25px;
+  min-height: 20px;
 
 }
 
 
 
 
-.menu ul a:hover .svg-inline--fa {
+.menu div a:hover .svg-inline--fa {
   animation: bounce 0.8s infinite;
 }
 
@@ -129,20 +127,18 @@ aside ul {
 
 }
 
-.menu ul a {
+.menu div a {
   text-decoration: none;
   color: #fff;
   display: flex;
-  padding: 10px;
-  height: 50px;
+  gap: 10px;
+  padding: 12px 0;
   box-sizing: border-box;
   align-items: center;
-  gap: 15px;
   margin: 0 1.5rem;
-  padding: 0;
 }
 
-.menu ul a:hover {
+.menu div a:hover {
   background-color: #333;
 }
 
@@ -384,8 +380,9 @@ aside ul {
   justify-content: center;
   border-radius: 10px;
   margin: auto;
+  height: 100vh;
   border: 1px solid #fff;
-  background-color: #fff;
+  
   color: #242424;
 }
 
@@ -394,6 +391,7 @@ aside ul {
   width: 300px;
   padding: 20px;
   border-radius: 8px;
+  background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
 }

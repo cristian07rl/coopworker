@@ -19,13 +19,11 @@ export const busqueda = async (arg) => {
 
 
 }
-export async function busqueda_tabla(page, limit) {
+export function busqueda_tabla() {
     // const token = localStorage.getItem('token') ?? 
     const token = 'token'
-
-
     return (
-        await fetch((`http://localhost:8080/allpersona?page=${page}&limit=${limit}`), {
+        fetch((`http://localhost:8080/allpersona`), {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`, // Enviar el token en el encabezado de autorización
